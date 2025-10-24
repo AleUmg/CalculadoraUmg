@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Gráfica</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.9.0/math.js"></script>
+</head>
+<body>
+    <!-- Header con logo de la UMG -->
+    <header class="umg-header">
+        <div class="header-content">
+            <img src="Umg.png" alt="Universidad Mariano Gálvez" class="umg-logo">
+            <div class="header-text">
+                <h1>Calculadora Gráfica y Normal</h1>
+                <p class="subtitle">Proyecto de Precálculo - Segundo Semestre</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <!-- Sección de Calculadora Normal -->
+        <div class="calculator-section">
+            <h2>Calculadora Normal</h2>
+            <div class="calculator">
+                <input type="text" id="display" class="display" readonly>
+                <div class="buttons">
+                    <button class="btn clear" onclick="clearDisplay()">C</button>
+                    <button class="btn clear" onclick="clearEntry()">CE</button>
+                    <button class="btn operator" onclick="deleteLast()">⌫</button>
+                    <button class="btn operator" onclick="appendToDisplay('/')">/</button>
+                    
+                    <button class="btn number" onclick="appendToDisplay('7')">7</button>
+                    <button class="btn number" onclick="appendToDisplay('8')">8</button>
+                    <button class="btn number" onclick="appendToDisplay('9')">9</button>
+                    <button class="btn operator" onclick="appendToDisplay('*')">×</button>
+                    
+                    <button class="btn number" onclick="appendToDisplay('4')">4</button>
+                    <button class="btn number" onclick="appendToDisplay('5')">5</button>
+                    <button class="btn number" onclick="appendToDisplay('6')">6</button>
+                    <button class="btn operator" onclick="appendToDisplay('-')">-</button>
+                    
+                    <button class="btn number" onclick="appendToDisplay('1')">1</button>
+                    <button class="btn number" onclick="appendToDisplay('2')">2</button>
+                    <button class="btn number" onclick="appendToDisplay('3')">3</button>
+                    <button class="btn operator" onclick="appendToDisplay('+')">+</button>
+                    
+                    <button class="btn number zero" onclick="appendToDisplay('0')">0</button>
+                    <button class="btn number" onclick="appendToDisplay('.')">.</button>
+                    <button class="btn equals" onclick="calculate()">=</button>
+                </div>
+                <div class="scientific-functions">
+                    <button class="btn function" onclick="appendFunction('sqrt(')">√</button>
+                    <button class="btn function" onclick="appendFunction('pow(')">x²</button>
+                    <button class="btn function" onclick="appendFunction('sin(')">sin</button>
+                    <button class="btn function" onclick="appendFunction('cos(')">cos</button>
+                    <button class="btn function" onclick="appendFunction('tan(')">tan</button>
+                    <button class="btn function" onclick="appendFunction('log(')">log</button>
+                    <button class="btn function" onclick="appendToDisplay('(')">(</button>
+                    <button class="btn function" onclick="appendToDisplay(')')">)</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección de Calculadora Gráfica -->
+        <div class="graphing-section">
+            <h2>Calculadora Gráfica</h2>
+            <div class="form-container">
+                <label for="funcion1">Función 1:</label>
+                <input type="text" id="funcion1" placeholder="Ejemplo: y = x^2">
+
+                <label for="funcion2">Función 2 (opcional):</label>
+                <input type="text" id="funcion2" placeholder="Ejemplo: x^2 + y^2 = 4">
+
+                <button id="graficar">Graficar</button>
+            </div>
+            <div id="grafica"></div>
+            <div id="resultados">
+                <h2>Resultados:</h2>
+                <p id="paridad"></p>
+                <p id="intersecciones"></p>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
